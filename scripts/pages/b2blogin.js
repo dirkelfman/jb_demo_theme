@@ -6,25 +6,32 @@ define(
                 var el = $('.jb-userlogins');
                 if (resp.total === 0) {
                     el.append('<div>none found</div>');
+                    return;
                 }
-                el.append('<ul>');
+
                 var form = document.getElementById('jb-b2bform');
                 form.method = 'POST';
+                var ul = $('<ul>');
+                el.append(ul);
+                var li;
                 //jb-b2bform"
                 resp.clients.forEach(function(user) {
-                    var li = $('<li style="cursor:pointer">' + user.description + '(' + user.segment + ')</li>');
+                    li = $('<li>');
+                    ul.append(li);
+
+                    var a = $('<a style="cursor:pointer">' + user.description + '(' + user.segment + ')</a>');
                     var loginFn = function() {
                         form.username.value = 'test@test.com';
                         form.password.value = user.token;
-                        ///set to domain of segmented server.
-                        form.action = user.host ? ('https://' + user.host + '/user/login') :  '/user/login';
+                        form.action = 'https://' + (user.host || document.location.host) + '/user/login';
                         form.target = '_blank';
                         form.submit();
                     };
-                    li.click(loginFn);
-                    el.append(li);
+                    a.click(loginFn);
+                    li.append(a);
+
                 });
-                el.append('</ul>');
+
             });
 
 
