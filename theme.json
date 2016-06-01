@@ -252,6 +252,14 @@
       "userCreatable": true
     },
     {
+      "documentType": "web_page",
+      "entityType": "webpage",
+      "id": "b2blogin",
+      "template": "b2blogin",
+      "title": "B2BLogin",
+      "userCreatable": false
+    },
+    {
       "entityType": "category",
       "id": "category",
       "template": "category",
@@ -361,6 +369,7 @@
     }
   ],
   "settings": {
+ 
     "backofficeDateTimeFormat": "m/d/Y H:i:s O",
     "extendedPropertiesEnabled": false,
     "extendedPropertyParameters": "",

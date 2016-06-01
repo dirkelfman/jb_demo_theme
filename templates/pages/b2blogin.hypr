@@ -1,0 +1,21 @@
+
+{% extends "page" %}
+
+{% block title-tag-content %}Customer Login JumpPage{% endblock title-tag-content %}
+
+
+{% block body-content %}
+
+{% require_script "pages/b2blogin" %}
+
+
+<form id="jb-b2bform">
+<input name='username' type='hidden'/>
+<input name='password' type='hidden'/>
+</form>
+<div class="jb-userlogins"></div>
+
+
+
+{% endblock body-content %}
+
